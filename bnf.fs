@@ -1,8 +1,14 @@
 \ Based on http://www.bradrodriguez.com/papers/bnfparse.htm
 \ And https://github.com/letoh/fina-forth/blob/master/bnf.fs
 
+get-current vocabulary bnf also bnf definitions ( PRIVATE )
+
 variable success
+variable chainer  variable chainer1   variable chainer2  variable chainer3
 : dp! ( a -- ) here - allot ;
+
+set-current ( PUBLIC )
+
 : <bnf ( -- ) success @ if r> >in @ >r here >r >r else r> drop then ;
 : bnf> ( -- ) success @ if r> r> r> 2drop >r else r> r> dp! r> >in ! >r then ;
 : | ( -- ) success @ if r> r> r> 2drop drop
@@ -24,7 +30,6 @@ variable success
 0 token <EOL>
 
 variable $$
-variable chainer  variable chainer1   variable chainer2  variable chainer3
 : {{ postpone ahead chainer3 ! chainer2 ! chainer1 !
      postpone ; noname : latestxt chainer ! ; immediate
 : }} postpone ; noname : chainer1 @ chainer2 @ chainer3 @ postpone then
@@ -37,3 +42,5 @@ variable chainer  variable chainer1   variable chainer2  variable chainer3
 : execute-all ( a n -- ) execute-steps execute-strip ;
 : <parse here 1 success ! ;
 : parse> execute-all ;
+
+previous ( END-VOCAB )

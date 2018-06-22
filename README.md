@@ -12,4 +12,4 @@ Inspiration on updating from
 * Allow inline strings + chars.
 * Something like kleene star/plus. (TODO)
 * Nicer syntax. (TODO)
-* Structure as library. (TODO)
+* Structure as library.
