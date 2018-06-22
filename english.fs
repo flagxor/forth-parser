@@ -1,3 +1,4 @@
+#! /usr/bin/env gforth
 require bnf.fs
 
 bl token <BL>

@@ -1,3 +1,4 @@
+#! /usr/bin/env gforth
 require bnf.fs
 
 bnf: {DIGIT}   t' 0 | t' 1 | t' 2 | t' 3 | t' 4 |
