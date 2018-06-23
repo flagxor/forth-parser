@@ -41,6 +41,6 @@ variable $$
     0 ?do dup @ $$ ! cell+ dup @ swap >r execute r> cell+ loop drop ;
 : execute-all ( a n -- ) execute-steps execute-strip ;
 : <parse here 1 success ! ;
-: parse> execute-all ;
+: parse> execute-all success @ 0= throw ;
 
 previous ( END-VOCAB )

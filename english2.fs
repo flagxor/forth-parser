@@ -17,7 +17,7 @@ bnf: <SENTENCE>   <NOUN> _+ <VERB> _* t' .
                        {{ >r >r 2swap type ." you " type r> r> type ." ?" }}
                 ;bnf
 
-: quoth: <parse <SENTENCE> parse> success @ 0= throw cr ;
+: quoth: <parse <SENTENCE> parse> cr ;
 
 quoth: cat eats.
 quoth: dog eats dog.
